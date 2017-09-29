@@ -254,7 +254,7 @@ services:
       - 8080:8090
       - 8090:8090
     environment:
-      - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIde$
+      - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
       - SP_FAIL_PAGE=https://www.google.com
       - SP_SUCCESS_PAGE=http://138.68.103.237/loginSuccess
       - SP_BACKEND=https://138.68.103.237
