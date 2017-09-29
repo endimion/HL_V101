@@ -269,8 +269,6 @@ services:
       placement:
         constraints: [node.role == worker]
 
-
-
    # SMTP server
    postfix:
     #container_name: postfix
