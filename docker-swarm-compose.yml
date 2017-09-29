@@ -268,13 +268,3 @@ services:
     deploy:
       placement:
         constraints: [node.role == worker]
-
-   # SMTP server
-   postfix:
-    #container_name: postfix
-    image: catatnight/postfix
-    ports:
-      - 25:25
-    environment:
-      - maildomain=ds.aegean.com
-      - smtp_user=user:pwd
