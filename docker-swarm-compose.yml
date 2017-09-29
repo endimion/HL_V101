@@ -260,7 +260,7 @@ services:
       - SP_BACKEND=https://138.68.103.237
       - SP_METADATA_URL=http://138.68.103.237:8090/metadata
       - SP_RETURN_URL=http://138.68.103.237:8090/eidasResponse
-      - SP_LOGO=http://trc.aiest.org/wp-content/uploads/2013/04/university-of-the$
+      - SP_LOGO=http://trc.aiest.org/wp-content/uploads/2013/04/university-of-the-aegean.png
       - SP_CONFIG_REPOSITORY=/configEidas/
     volumes:
       - /configEidas:/configEidas
