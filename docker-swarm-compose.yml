@@ -269,3 +269,18 @@ services:
       hyp-net:
         aliases:
           - loginWeb
+
+
+
+  # email microservice
+  postfix:
+    image: catatnight/postfix
+    ports:
+      - 25:25
+    environment:
+      - maildomain=mail.example.com
+      - smtp_user=user:pwd
+    networks:
+      hyp-net:
+        aliases:
+          - postfixWebApp
