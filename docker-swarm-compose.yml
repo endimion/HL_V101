@@ -16,7 +16,7 @@ networks:
 services:
 
   ca_org1_example_com:
-    image: hyperledger/fabric-ca:x86_64-1.0.1
+    image: hyperledger/fabric-ca:x86_64-1.0.2
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       #- FABRIC_CA_SERVER_CA_NAME=ca1.example.com
@@ -41,10 +41,10 @@ services:
           - ca_peerOrg1
     deploy:
       placement:
-        constraints: [node.role == worker]
+        constraints: [node.role == manager]
 
   ca_org2_example_com:
-    image: hyperledger/fabric-ca:x86_64-1.0.1
+    image: hyperledger/fabric-ca:x86_64-1.0.2
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       #- FABRIC_CA_SERVER_CA_NAME=ca2.example.com
@@ -69,12 +69,12 @@ services:
           - ca_peerOrg2
     deploy:
       placement:
-        constraints: [node.role == manager]
+        constraints: [node.role == worker]
 
 
   orderer_example_com:
 #    container_name: orderer.example.com
-    image: hyperledger/fabric-orderer:x86_64-1.0.1
+    image: hyperledger/fabric-orderer:x86_64-1.0.2
     environment:
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=hyp-net
       - ORDERER_GENERAL_LOGLEVEL=debug
@@ -105,11 +105,11 @@ services:
           - orderer.example.com
     deploy:
       placement:
-        constraints: [node.role == manager]
+        constraints: [node.role == worker]
 
   peer0_org1_example_com:
 #    container_name: peer0.org1.example.com
-    image: hyperledger/fabric-peer:x86_64-1.0.1
+    image: hyperledger/fabric-peer:x86_64-1.0.2
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       # the following setting starts chaincode containers on the same
@@ -159,7 +159,7 @@ services:
   #added by nikos second peer beloging to org2
   peer0_org2_example_com:
 #    container_name: peer0.org2.example.com
-    image: hyperledger/fabric-peer:x86_64-1.0.1
+    image: hyperledger/fabric-peer:x86_64-1.0.2
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       # the following setting starts chaincode containers on the same
@@ -208,7 +208,7 @@ services:
 
   couchdb0:
 #    container_name: couchdb0
-    image: hyperledger/fabric-couchdb:x86_64-1.0.1
+    image: hyperledger/fabric-couchdb:x86_64-1.0.2
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     ports:
@@ -227,7 +227,7 @@ services:
 
   couchdb1:
  #   container_name: couchdb1
-    image: hyperledger/fabric-couchdb:x86_64-1.0.1
+    image: hyperledger/fabric-couchdb:x86_64-1.0.2
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     ports:
@@ -244,43 +244,3 @@ services:
           - couchdb1
 
 
-  # DipSup login microservice
-  loginWebApp:
-  #container_name: loginWebApp
-    image: endimion13/eidas-gr-loginwebapp:3
-    #expose:
-    #  - 8090
-    ports:
-      - 8080:8090
-      - 8090:8090
-    environment:
-      - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
-      - SP_FAIL_PAGE=https://www.google.com
-      - SP_SUCCESS_PAGE=http://138.68.103.237/loginSuccess
-      - SP_BACKEND=https://138.68.103.237
-      - SP_METADATA_URL=http://138.68.103.237:8090/metadata
-      - SP_RETURN_URL=http://138.68.103.237:8090/eidasResponse
-      - SP_LOGO=http://trc.aiest.org/wp-content/uploads/2013/04/university-of-the-aegean.png
-      - SP_CONFIG_REPOSITORY=/configEidas/
-    volumes:
-      - /configEidas:/configEidas
-      - /keystore:/keystore
-    networks:
-      hyp-net:
-        aliases:
-          - loginWeb
-
-
-
-  # email microservice
-  postfix:
-    image: catatnight/postfix
-    ports:
-      - 25:25
-    environment:
-      - maildomain=mail.example.com
-      - smtp_user=user:pwd
-    networks:
-      hyp-net:
-        aliases:
-          - postfixWebApp
