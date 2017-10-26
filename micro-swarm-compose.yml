@@ -13,24 +13,32 @@ services:
   # DipSup login microservice
   loginWebApp:
   #container_name: loginWebApp
-    image: endimion13/eidas-gr-loginwebapp:1.6
+    #image: endimion13/eidas-gr-loginwebapp:3.1
+    image: endimion13/eidas-gr-isswebapp:1.0
     #expose:
     #  - 8090
     ports:
       - 8080:8090
       - 8090:8090
+#    environment:
+#      - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+#      - SP_FAIL_PAGE=https://www.google.com
+#      #- SP_BACKEND=
+#      - SP_SUCCESS_PAGE=http://138.68.103.237/loginSuccess
+#      - SP_METADATA_URL=http://138.68.103.237:8090/metadata
+#      - SP_RETURN_URL=http://138.68.103.237:8090/eidasResponse
+#      - SP_LOGO=http://trc.aiest.org/wp-content/uploads/2013/04/university-of-the-aegean.png
+#      - SP_CONFIG_REPOSITORY=/configEidas/
     environment:
-      - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
-      - SP_FAIL_PAGE=https://www.google.com
-      #- SP_BACKEND=
-      - SP_SUCCESS_PAGE=http://138.68.103.237/loginSuccess
-      - SP_METADATA_URL=http://138.68.103.237:8090/metadata
-      - SP_RETURN_URL=http://138.68.103.237:8090/eidasResponse
-      - SP_LOGO=http://trc.aiest.org/wp-content/uploads/2013/04/university-of-the-aegean.png
-      - SP_CONFIG_REPOSITORY=/configEidas/
-    volumes:
-      - /configEidasOLD:/configEidas
-      - /keystore:/keystore
+       - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+       - SP_FAIL_PAGE=https://www.google.com
+       - SP_SUCCESS_PAGE=http://138.68.103.237/loginSuccess
+       - SP_LOGO=http://trc.aiest.org/wp-content/uploads/2013/04/university-of-the-aegean.png
+       - ISS_URL=http://84.205.248.180/ISSPlus/ValidateToken
+       - SP_ID=sp4
+#    volumes:
+#      - /configEidas:/configEidas
+#      - /keystore:/keystore
     networks:
       hyp-net:
         aliases:
