@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+loginWebApp2:
+
+image: endimion13/eidas-gr-loginwebapp:3.1
+
+ports:
+
+- 9080:8090
+
+- 9090:8090
+
+environment:
+
+- EIDAS_PROPERTIES=http://eidas.europa.eu/attributes/naturalperson/CurrentFamilyName,
+
+http://eidas.europa.eu/attributes/naturalperson/CurrentGivenName,
+
+http://eidas.europa.eu/attributes/naturalperson/DateOfBirth,http://eidas.europa.eu/attributes/naturalperson/PersonIdentifier
+- SP_FAIL_PAGE= http://www.host.com/authfail
+- SP_SUCCESS_PAGE=http://www.host.com/loginSuccess
+- SP_METADATA_URL=http://www.host.com:9090/metadata
+- SP_RETURN_URL=http://www.host.com:9090/eidasResponse
+- SP_LOGO=http://www.host.com/university-of-the-aegean.png
+- SP_CONFIG_REPOSITORY=/configEidas/
+
+
+
+volumes:
+
+- /configEidas:/configEidas

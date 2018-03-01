@@ -60,7 +60,7 @@ services:
     #command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/be9fc7d28466a86f14d5e60d2bb7fbd234763273518c7502b58bcbbc23d837d4_sk -b admin:adminpw -d'
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
-      - ./crypto-config/peerOrganizations/org2.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - /home/kostis/HL_V101/crypto-config/peerOrganizations/org2.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - /var/run/docker.sock:/var/run/docker.sock
  #   container_name: ca_peerOrg2
     networks:
@@ -69,7 +69,7 @@ services:
           - ca_peerOrg2
     deploy:
       placement:
-        constraints: [node.role == worker]
+        constraints: [node.id == yx0wgjwlad5pm96f634sipqn7]
 
 
   orderer_example_com:
@@ -196,14 +196,14 @@ services:
       - 8051
       - 8053
     volumes:
-        - ./crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/:/etc/hyperledger/crypto/peer
+        - /home/kostis/HL_V101/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/:/etc/hyperledger/crypto/peer
         - /var/run/:/host/var/run/
     depends_on:
       - orderer_example_com
       - couchdb1
     deploy:
       placement:
-        constraints: [node.role == worker]
+        constraints: [node.id == yx0wgjwlad5pm96f634sipqn7]
 
 
   couchdb0:
