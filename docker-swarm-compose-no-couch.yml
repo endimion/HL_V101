@@ -69,7 +69,7 @@ services:
           - ca_peerOrg2
     deploy:
       placement:
-        constraints: [node.hostname == infolab]
+        constraints: [node.role == worker]
 
 
   orderer_example_com:
@@ -128,11 +128,11 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
       # CouchDB
-      #- CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_PEER_ID=peer0.org1.example.com
       - CORE_PEER_LOCALMSPID=Org1MSP
       - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
-      #- CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
     networks:
@@ -178,11 +178,11 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
       # CouchDB
-      #- CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_PEER_ID=peer0.org2.example.com
       - CORE_PEER_LOCALMSPID=Org2MSP
       - CORE_PEER_ADDRESS=peer0.org2.example.com:7051
-      #- CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
     networks:
@@ -203,43 +203,44 @@ services:
       - couchdb1
     deploy:
       placement:
-        constraints: [node.hostname == infolab]
+        constraints: [node.role == worker]
 
 
-#   couchdb0:
-# #    container_name: couchdb0
-#     image: hyperledger/fabric-couchdb:x86_64-1.0.2
-#     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
-#     # for example map it to utilize Fauxton User Interface in dev environments.
-#     ports:
-#       - "5984:5984"
-#     expose:
-#       - 5984
-#     #networks:
-#     #  - dipsup
-#     #networks:
-#     #  - basic
-#     networks:
-#       hyp-net:
-#         aliases:
-#           - couchdb0
+  couchdb0:
+#    container_name: couchdb0
+    image: hyperledger/fabric-couchdb:x86_64-1.0.2
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - "5984:5984"
+    expose:
+      - 5984
+    #networks:
+    #  - dipsup
+    #networks:
+    #  - basic
+    networks:
+      hyp-net:
+        aliases:
+          - couchdb0
 
 
- #  couchdb1:
- # #   container_name: couchdb1
- #    image: hyperledger/fabric-couchdb:x86_64-1.0.2
- #    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
- #    # for example map it to utilize Fauxton User Interface in dev environments.
- #    ports:
- #      - "6984:5984"
- #    expose:
- #     - 6984
- #    #networks:
- #    #  - dipsup
- #    #networks:
- #    #  - basic
- #    networks:
- #      hyp-net:
- #        aliases:
- #          - couchdb1
- #
+  couchdb1:
+ #   container_name: couchdb1
+    image: hyperledger/fabric-couchdb:x86_64-1.0.2
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - "6984:5984"
+    expose:
+     - 6984
+    #networks:
+    #  - dipsup
+    #networks:
+    #  - basic
+    networks:
+      hyp-net:
+        aliases:
+          - couchdb1
+
+
