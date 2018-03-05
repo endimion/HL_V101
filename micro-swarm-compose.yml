@@ -16,16 +16,17 @@ services:
     ports:
       - 8080:8090
       - 8090:8090
+      - 9080:8090
     environment:
        - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
-       - SP_FAIL_PAGE=https://www.google.com
+       - SP_FAIL_PAGE=https://195.251.134.246/loginFail
        #- SP_SUCCESS_PAGE=http://138.68.103.237/loginSuccess
-       - SP_SUCCESS_PAGE=http://138.68.103.237/loginSuccessReact
+       - SP_SUCCESS_PAGE=http://195.251.134.246/loginSuccessReact
        - SP_LOGO=http://excellence.minedu.gov.gr/thales/sites/default/files/Logo-Aegean.png
        - ISS_URL=http://84.205.248.180/ISSPlus/ValidateToken
        - SP_ID=sp4
        - SP_SECRET=secret
-       - AUTH_DURATION=1800 
+       - AUTH_DURATION=2800 
     networks:
       hyp-net:
         aliases:
@@ -39,10 +40,13 @@ services:
     ports:
       - 25:25
     environment:
-      - maildomain=mail.example.com
+      - maildomain=dss.aegean.gr
       - smtp_user=user:pwd
     networks:
       hyp-net:
         aliases:
           - postfixWebApp
+    deploy:
+      placement:
+        constraints: [node.role == manager]
 
