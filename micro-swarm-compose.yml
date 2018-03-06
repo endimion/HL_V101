@@ -39,8 +39,8 @@ services:
       - 9081:8090
       - 9091:8090
     environment:
-      - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
-      - SP_FAIL_PAGE=https://www.google.com
+      - EIDAS_PROPERTIES=http://eidas.europa.eu/attributes/legalperson/representative/LegalName,http://eidas.europa.eu/attributes/legalperson/representative/LegalPersonIdentifier
+      - SP_FAIL_PAGE=http://dss.aegean.gr/
       #- SP_BACKEND=
       - SP_SUCCESS_PAGE=http://dss.aegean.gr/loginSuccess
       - SP_METADATA_URL=http://dss.aegean.gr:9091/metadata
