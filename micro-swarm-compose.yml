@@ -30,7 +30,7 @@ services:
       hyp-net:
         aliases:
           - loginWeb
-
+ 
 
   loginWebAppLegalPersons:
   #container_name: loginWebApp
