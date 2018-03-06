@@ -30,7 +30,9 @@ services:
       hyp-net:
         aliases:
           - loginWeb
-
+    deploy:
+      placement:
+        constraints: [node.hostname == infolab]
 
   loginWebAppLegalPersons:
   #container_name: loginWebApp
@@ -52,6 +54,9 @@ services:
       hyp-net:
         aliases:
           - loginWeb2
+    deploy:
+      placement:
+        constraints: [node.hostname == infolab]
 
 
   # email microservice
