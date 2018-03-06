@@ -19,24 +19,14 @@ services:
       - 9080:8090
     environment:
        - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
-<<<<<<< HEAD
-       - SP_FAIL_PAGE=https://195.251.134.246/loginFail
-       #- SP_SUCCESS_PAGE=http://138.68.103.237/loginSuccess
-       - SP_SUCCESS_PAGE=http://195.251.134.246/loginSuccessReact
-=======
        - SP_FAIL_PAGE=http://dss.aegean.gr/
        #- SP_SUCCESS_PAGE=http://138.68.103.237/loginSuccess
        - SP_SUCCESS_PAGE=http://dss.aegean.gr/loginSuccessReact
->>>>>>> 06826a8fb29a93314e4416c8b03911d0bcdd3d36
        - SP_LOGO=http://excellence.minedu.gov.gr/thales/sites/default/files/Logo-Aegean.png
        - ISS_URL=http://84.205.248.180/ISSPlus/ValidateToken
        - SP_ID=sp4
        - SP_SECRET=secret
-<<<<<<< HEAD
-       - AUTH_DURATION=2800 
-=======
        - AUTH_DURATION=3800
->>>>>>> 06826a8fb29a93314e4416c8b03911d0bcdd3d36
     networks:
       hyp-net:
         aliases:
@@ -79,10 +69,7 @@ services:
       hyp-net:
         aliases:
           - postfixWebApp
-<<<<<<< HEAD
     deploy:
       placement:
         constraints: [node.role == manager]
 
-=======
->>>>>>> 06826a8fb29a93314e4416c8b03911d0bcdd3d36
