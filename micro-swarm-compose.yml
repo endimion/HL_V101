@@ -32,7 +32,7 @@ services:
           - loginWeb
     deploy:
       placement:
-        constraints: [node.hostname == infolab]
+        constraints: [node.hostname == dss]
 
   loginWebAppLegalPersons:
   #container_name: loginWebApp
@@ -56,7 +56,7 @@ services:
           - loginWeb2
     deploy:
       placement:
-        constraints: [node.hostname == infolab]
+        constraints: [node.hostname == dss]
 
 
   # email microservice
