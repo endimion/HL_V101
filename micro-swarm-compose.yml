@@ -11,26 +11,49 @@ networks:
 services:
 
   # DipSup login microservice
-  loginWebApp:
+  loginWebAppNaturalPersons:
     image: endimion13/eidas-gr-isswebapp:1.3.2
     ports:
       - 8080:8090
       - 8090:8090
     environment:
        - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
-       - SP_FAIL_PAGE=https://www.google.com
+       - SP_FAIL_PAGE=http://dss.aegean.gr/
        #- SP_SUCCESS_PAGE=http://138.68.103.237/loginSuccess
-       - SP_SUCCESS_PAGE=http://138.68.103.237/loginSuccessReact
+       - SP_SUCCESS_PAGE=http://dss.aegean.gr/loginSuccessReact
        - SP_LOGO=http://excellence.minedu.gov.gr/thales/sites/default/files/Logo-Aegean.png
        - ISS_URL=http://84.205.248.180/ISSPlus/ValidateToken
        - SP_ID=sp4
        - SP_SECRET=secret
-       - AUTH_DURATION=1800 
+       - AUTH_DURATION=3800
     networks:
       hyp-net:
         aliases:
           - loginWeb
 
+
+  loginWebAppLegalPersons:
+  #container_name: loginWebApp
+    image: endimion13/eidas-gr-loginwebapp:3.1
+    ports:
+      - 9081:8090
+      - 9091:8090
+    environment:
+      - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+      - SP_FAIL_PAGE=https://www.google.com
+      #- SP_BACKEND=
+      - SP_SUCCESS_PAGE=http://dss.aegean.gr/loginSuccess
+      - SP_METADATA_URL=http://dss.aegean.gr:9091/metadata
+      - SP_RETURN_URL=http://dss.aegean.gr:9091/eidasResponse
+      - SP_LOGO=http://trc.aiest.org/wp-content/uploads/2013/04/university-of-the-aegean.png
+      - SP_CONFIG_REPOSITORY=/configEidas/
+    volumes:
+      - /configEidas:/configEidas
+      - /keystore:/keystore
+    networks:
+      hyp-net:
+        aliases:
+          - loginWeb2
 
 
   # email microservice
@@ -45,4 +68,3 @@ services:
       hyp-net:
         aliases:
           - postfixWebApp
-
