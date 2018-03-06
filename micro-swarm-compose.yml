@@ -36,8 +36,8 @@ services:
   #container_name: loginWebApp
     image: endimion13/eidas-gr-loginwebapp:3.2
     ports:
-      - 9082:8090
-      - 9092:8090
+      - 9081:8090
+      - 9091:8090
     environment:
       - EIDAS_PROPERTIES=http://eidas.europa.eu/attributes/legalperson/LegalName,http://eidas.europa.eu/attributes/legalperson/LegalPersonIdentifier
       - SP_FAIL_PAGE=http://dss.aegean.gr/
