@@ -69,7 +69,7 @@ services:
           - ca_peerOrg2
     deploy:
       placement:
-        constraints: [node.hostname == infolab]
+        constraints: [node.hostname == dss1]
 
 
   orderer_example_com:
@@ -203,7 +203,7 @@ services:
       - couchdb1
     deploy:
       placement:
-        constraints: [node.hostname == infolab]
+        constraints: [node.hostname == dss1]
 
 
 #   couchdb0:
