@@ -20,10 +20,10 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       #- FABRIC_CA_SERVER_CA_NAME=ca1.example.com
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fdd7ecd5cebb2766eeed85e1561aa1af14e2ed04dfa450748babca1fe288a60c_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/28fc60e99b6b67b9247cd4bf3051d8990539519fedb09410f592bfbf76e39559_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fdd7ecd5cebb2766eeed85e1561aa1af14e2ed04dfa450748babca1fe288a60c_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/28fc60e99b6b67b9247cd4bf3051d8990539519fedb09410f592bfbf76e39559_sk
     ports:
       - "7054:7054"
     expose:
@@ -48,10 +48,10 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       #- FABRIC_CA_SERVER_CA_NAME=ca2.example.com
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/c083c5e2d5eaadd04ff6aa8e36b6f5b7c040d2b574657cb892801825a645fe84_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/4919808ad539e58cbb44df6e9bd638d3ee1b5b99e947369ca9d79095b9eea6eb_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/c083c5e2d5eaadd04ff6aa8e36b6f5b7c040d2b574657cb892801825a645fe84_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/4919808ad539e58cbb44df6e9bd638d3ee1b5b99e947369ca9d79095b9eea6eb_sk
     ports:
       - "8054:7054"
     expose:
@@ -78,10 +78,10 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       #- FABRIC_CA_SERVER_CA_NAME=ca1.example.com
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fdd7ecd5cebb2766eeed85e1561aa1af14e2ed04dfa450748babca1fe288a60c_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fda5a7fd26cc991de53fa211f3af0b2800cc4e8a1f32572e1dce4a5913998e54_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fdd7ecd5cebb2766eeed85e1561aa1af14e2ed04dfa450748babca1fe288a60c_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fda5a7fd26cc991de53fa211f3af0b2800cc4e8a1f32572e1dce4a5913998e54_sk
     ports:
       - "9054:7054"
     expose:
