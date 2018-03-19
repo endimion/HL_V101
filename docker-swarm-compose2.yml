@@ -150,7 +150,7 @@ services:
       - CORE_LOGGING_LEVEL=DEBUG
       - CORE_PEER_GOSSIP_USELEADERELECTION=true
       - CORE_PEER_GOSSIP_ORGLEADER=false
-      - CORE_PEER_PROFILE_ENABLED=true
+      # - CORE_PEER_PROFILE_ENABLED=true
       # The following setting skips the gossip handshake since we are
       # are not doing mutual TLS
       - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
@@ -184,6 +184,8 @@ services:
     volumes:
         - ./crypto-config2/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/:/etc/hyperledger/crypto/peer
         - ./crypto-config2:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+        - ../crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/etc/hyperledger/fabric/tls
         - /var/run/docker.sock:/var/run/docker.sock
         - /var/run/:/host/var/run/
     depends_on:
@@ -206,7 +208,7 @@ services:
       - CORE_LOGGING_LEVEL=DEBUG
       - CORE_PEER_GOSSIP_USELEADERELECTION=true
       - CORE_PEER_GOSSIP_ORGLEADER=false
-      - CORE_PEER_PROFILE_ENABLED=true
+      # - CORE_PEER_PROFILE_ENABLED=true
       # The following setting skips the gossip handshake since we are
       # are not doing mutual TLS
       - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
@@ -240,6 +242,8 @@ services:
     volumes:
         - ./crypto-config2/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/:/etc/hyperledger/crypto/peer
         - ./crypto-config2:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+        - ../crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls:/etc/hyperledger/fabric/tls
         - /var/run/:/host/var/run/
     depends_on:
       - orderer_example_com
@@ -261,7 +265,7 @@ services:
       - CORE_LOGGING_LEVEL=DEBUG
       - CORE_PEER_GOSSIP_USELEADERELECTION=true
       - CORE_PEER_GOSSIP_ORGLEADER=false
-      - CORE_PEER_PROFILE_ENABLED=true
+      # - CORE_PEER_PROFILE_ENABLED=true
       # The following setting skips the gossip handshake since we are
       # are not doing mutual TLS
       - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
@@ -295,6 +299,8 @@ services:
     volumes:
         - ./crypto-config2/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/:/etc/hyperledger/crypto/peer
         - ./crypto-config2:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+        - ../crypto-config/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls:/etc/hyperledger/fabric/tls
         - /var/run/:/host/var/run/
     depends_on:
       - orderer_example_com
