@@ -158,7 +158,6 @@ services:
       # - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
       # - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
       # - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
-
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peerpeerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peerpeerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peerpeerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
@@ -213,7 +212,6 @@ services:
       # - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
       # - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
       # - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
-
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peerpeerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peerpeerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peerpeerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
@@ -267,7 +265,6 @@ services:
       # - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
       # - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
       # - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
-
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peerpeerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peerpeerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peerpeerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt
