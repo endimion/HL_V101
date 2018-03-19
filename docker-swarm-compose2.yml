@@ -95,7 +95,7 @@ services:
     networks:
       hyp-net:
         aliases:
-          - ca_peerOrg1
+          - ca_peerOrg3
     deploy:
       placement:
         constraints: [node.role == manager]
