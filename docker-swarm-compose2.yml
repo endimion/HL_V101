@@ -68,7 +68,7 @@ services:
           - ca_peerOrg2
     deploy:
       placement:
-        constraints: [node.hostname == infolab]
+        constraints: [node.hostname == dss1]
 
 
 
