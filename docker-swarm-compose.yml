@@ -151,7 +151,7 @@ services:
         - /var/run/:/host/var/run/
     depends_on:
       - orderer_example_com
-      - couchdb0
+      # - couchdb0
     deploy:
       placement:
         constraints: [node.role == manager]
@@ -200,7 +200,7 @@ services:
         - /var/run/:/host/var/run/
     depends_on:
       - orderer_example_com
-      - couchdb1
+#      - couchdb1
     deploy:
       placement:
         constraints: [node.hostname == dss1]
