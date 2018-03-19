@@ -136,7 +136,7 @@ services:
           - orderer.example.com
     deploy:
       placement:
-        constraints: [node.role == manager]
+        constraints: [node.hostname == dss1]
 
   peer0_org1_example_com:
 #    container_name: peer0.org1.example.com
@@ -185,7 +185,7 @@ services:
       # - couchdb0
     deploy:
       placement:
-        constraints: [node.role == manager]
+        constraints: [node.hostname == dss]
 
   #added by nikos second peer beloging to org2
   peer0_org2_example_com:
