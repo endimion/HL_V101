@@ -83,9 +83,9 @@ services:
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
       - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fdd7ecd5cebb2766eeed85e1561aa1af14e2ed04dfa450748babca1fe288a60c_sk
     ports:
-      - "7054:7054"
+      - "9054:7054"
     expose:
-      - "7054"
+      - "9054"
     #command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/be9fc7d28466a86f14d5e60d2bb7fbd234763273518c7502b58bcbbc23d837d4_sk -b admin:adminpw -d'
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
