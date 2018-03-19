@@ -87,7 +87,6 @@ services:
       placement:
         constraints: [node.hostname == dss1]
 
-
    orderer.example.com:
      container_name: orderer.example.com
      image: hyperledger/fabric-orderer:x86_64-1.1.0
@@ -119,7 +118,6 @@ services:
      deploy:
      placement:
        constraints: [node.hostname == dss]
-
 
   peer0.org1.example.com:
     container_name: peer0.org1.example.com
