@@ -65,27 +65,7 @@ services:
       placement:
         constraints: [node.hostname == dss1]
 
-    ca2:
-      image: hyperledger/fabric-ca:x86_64-1.1.0
-      environment:
-        - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
-        - FABRIC_CA_SERVER_CA_NAME=ca-org3
-        - FABRIC_CA_SERVER_TLS_ENABLED=true
-        - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org3.example.com-cert.pem
-        - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fda5a7fd26cc991de53fa211f3af0b2800cc4e8a1f32572e1dce4a5913998e54_sk
-      ports:
-        - "9054:7054"
-      command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org3.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/fda5a7fd26cc991de53fa211f3af0b2800cc4e8a1f32572e1dce4a5913998e54_sk -b admin:adminpw -d'
-      volumes:
-        - ./crypto-config/peerOrganizations/org3.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
-      container_name: ca_peerOrg3
-      networks:
-        hyp-net:
-          aliases:
-            - ca_peerOrg3
-      deploy:
-       placement:
-         constraints: [node.hostname == dss1]
+
 
    orderer.example.com:
      container_name: orderer.example.com
