@@ -21,10 +21,10 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       #- FABRIC_CA_SERVER_CA_NAME=ca1.example.com
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/06596f6810f5c79549c72dbb73fc8520fe16139f33481bc405104c45326f63ce_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/28fc60e99b6b67b9247cd4bf3051d8990539519fedb09410f592bfbf76e39559_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/06596f6810f5c79549c72dbb73fc8520fe16139f33481bc405104c45326f63ce_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/28fc60e99b6b67b9247cd4bf3051d8990539519fedb09410f592bfbf76e39559_sk
     ports:
       - "7054:7054"
     expose:
@@ -49,10 +49,10 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       #- FABRIC_CA_SERVER_CA_NAME=ca2.example.com
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/2b1c49a342ca0e510917444a69c24d82ff3b180fdb24ccb8043bd982439a3d7f_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/4919808ad539e58cbb44df6e9bd638d3ee1b5b99e947369ca9d79095b9eea6eb_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/2b1c49a342ca0e510917444a69c24d82ff3b180fdb24ccb8043bd982439a3d7f_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/4919808ad539e58cbb44df6e9bd638d3ee1b5b99e947369ca9d79095b9eea6eb_sk
     ports:
       - "8054:7054"
     expose:
