@@ -21,10 +21,10 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       #- FABRIC_CA_SERVER_CA_NAME=ca1.example.com
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/28fc60e99b6b67b9247cd4bf3051d8990539519fedb09410f592bfbf76e39559_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/9fdee46fc737614dbed23fa6990862175e8c30b3e725e7382629b6b3489ac3d1_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/28fc60e99b6b67b9247cd4bf3051d8990539519fedb09410f592bfbf76e39559_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/9fdee46fc737614dbed23fa6990862175e8c30b3e725e7382629b6b3489ac3d1_sk
     ports:
       - "7054:7054"
     expose:
@@ -32,7 +32,7 @@ services:
     #command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/be9fc7d28466a86f14d5e60d2bb7fbd234763273518c7502b58bcbbc23d837d4_sk -b admin:adminpw -d'
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
-      - ./crypto-configNew/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - ./crypto-config2/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - /var/run/docker.sock:/var/run/docker.sock
 #    container_name: ca_peerOrg1
     networks:
@@ -49,10 +49,10 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       #- FABRIC_CA_SERVER_CA_NAME=ca2.example.com
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/4919808ad539e58cbb44df6e9bd638d3ee1b5b99e947369ca9d79095b9eea6eb_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/8828bd3358be78dc6c7d8eacdd936a981b7c44418863b6731fcc0803b4319849_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/4919808ad539e58cbb44df6e9bd638d3ee1b5b99e947369ca9d79095b9eea6eb_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/8828bd3358be78dc6c7d8eacdd936a981b7c44418863b6731fcc0803b4319849_sk
     ports:
       - "8054:7054"
     expose:
@@ -60,7 +60,7 @@ services:
     #command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/be9fc7d28466a86f14d5e60d2bb7fbd234763273518c7502b58bcbbc23d837d4_sk -b admin:adminpw -d'
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
-      - ./crypto-configNew/peerOrganizations/org2.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - ./crypto-config2/peerOrganizations/org2.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - /var/run/docker.sock:/var/run/docker.sock
  #   container_name: ca_peerOrg2
     networks:
@@ -94,10 +94,10 @@ services:
     expose:
      - "7050"
     volumes:
-        - ./channel-artifactsNew/:/etc/hyperledger/configtx
-        - ./crypto-configNew/ordererOrganizations/example.com/orderers/orderer.example.com/:/etc/hyperledger/crypto/orderer
-        - ./crypto-configNew/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/:/etc/hyperledger/crypto/peerOrg1
-        - ./crypto-configNew/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/:/etc/hyperledger/crypto/peerOrg2
+        - ./channel-artifacts2/:/etc/hyperledger/configtx
+        - ./crypto-config2/ordererOrganizations/example.com/orderers/orderer.example.com/:/etc/hyperledger/crypto/orderer
+        - ./crypto-config2/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/:/etc/hyperledger/crypto/peerOrg1
+        - ./crypto-config2/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/:/etc/hyperledger/crypto/peerOrg2
         - /var/run/docker.sock:/var/run/docker.sock
     networks:
       hyp-net:
@@ -146,7 +146,7 @@ services:
       - 7051
       - 7053
     volumes:
-        - ./crypto-configNew/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/:/etc/hyperledger/crypto/peer
+        - ./crypto-config2/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/:/etc/hyperledger/crypto/peer
         - /var/run/docker.sock:/var/run/docker.sock
         - /var/run/:/host/var/run/
     depends_on:
@@ -196,7 +196,7 @@ services:
       - 8051
       - 8053
     volumes:
-        - ./crypto-configNew/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/:/etc/hyperledger/crypto/peer
+        - ./crypto-config2/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/:/etc/hyperledger/crypto/peer
         - /var/run/:/host/var/run/
     depends_on:
       - orderer_example_com
