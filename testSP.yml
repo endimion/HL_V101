@@ -31,9 +31,9 @@ services:
       container_name: testSP
       image: endimion13/eidas-gr-testsp:1.0
       expose:
-          - 9091
+          - 9095
       ports:
-          - 9091:8090
+          - 9095:8090
       environment:
           - LOGIN_WEBAPP_URL=http://dss.aegean.gr:9090/login
           - SP_LOGO=http://www.elta.gr/Portals/0/elta.jpg
