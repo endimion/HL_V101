@@ -5,7 +5,7 @@ services:
 
   # DipSup login microservice
   eIDASLogin:
-    image: endimion13/eidas-gr-loginwebapp:3.1
+    image: endimion13/eidas-gr-loginwebapp:3.2
     ports:
       - 9090:8090
     environment:

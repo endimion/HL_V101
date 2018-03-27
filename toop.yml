@@ -3,7 +3,7 @@ version: '3'
 services:
 
   loginWebApp2:
-    image: endimion13/toop-eid:0.3.4
+    image: endimion13/toop-eid:0.4
     ports:
       - 9080:8090
       - 9090:8090
