@@ -33,7 +33,7 @@ services:
       expose:
           - 9095
       ports:
-          - 9095:8090
+          - 9095:8080
       environment:
           - LOGIN_WEBAPP_URL=http://dss.aegean.gr:9090/login
           - SP_LOGO=http://www.elta.gr/Portals/0/elta.jpg
