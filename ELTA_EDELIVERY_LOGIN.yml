@@ -1,0 +1,32 @@
+version: '3'
+
+
+services:
+
+  # DipSup login microservice
+  eIDASLogin:
+    image: endimion13/eidas-gr-loginwebapp:3.1
+    ports:
+      - 9090:8090
+    environment:
+      - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+      - SP_FAIL_PAGE=https://www.google.com
+      - SP_SUCCESS_PAGE=http://212.205.82.118/loginSuccess
+      - SP_METADATA_URL=http://212.205.82.118:9090/metadata
+      - SP_RETURN_URL=http://212.205.82.118:9090/eidasResponse
+      - SP_LOGO=http://www.elta.gr/Portals/0/elta.jpg
+      - SP_CONFIG_REPOSITORY=/configEidas/
+    volumes:
+      - /configEidas:/configEidas
+
+  testSP:
+      container_name: testSP
+      image: endimion13/eidas-gr-testsp:1.0
+      expose:
+          - 9095
+      ports:
+          - 9095:8080
+      environment:
+          - LOGIN_WEBAPP_URL=http://212.205.82.118:9090/login
+          - SP_LOGO=http://www.elta.gr/Portals/0/elta.jpg
+          - SP_SECRET=secret

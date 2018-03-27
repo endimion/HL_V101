@@ -56,6 +56,6 @@ services:
       ports:
           - 9095:8080
       environment:
-          - LOGIN_WEBAPP_URL=http://dss.aegean.gr:9090/login
+          - LOGIN_WEBAPP_URL=http://212.205.82.117:9095/login
           - SP_LOGO=http://www.elta.gr/Portals/0/elta.jpg
           - SP_SECRET=secret
