@@ -11,7 +11,7 @@ networks:
 services:
 
   # DipSup login microservice
-  loginWebAppNaturalPersons:
+  testSPloginWebAppNaturalPersons:
     image: endimion13/eidas-gr-isswebapp:1.3.2
     ports:
       - 9090:8090
@@ -25,7 +25,7 @@ services:
        - SP_ID=sp4
        - SP_SECRET=secret
        - AUTH_DURATION=3800
-    
+
 
   testSP:
       container_name: testSP
