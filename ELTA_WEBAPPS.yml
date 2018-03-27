@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+
+  # DipSup login microservice
+  eShopLogin:
+    image: endimion13/eidas-gr-isswebapp:1.3.2
+    ports:
+      - 9091:8090
+    environment:
+       - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+       - SP_FAIL_PAGE=http://212.205.82.117:9095/error
+       - SP_SUCCESS_PAGE=http://212.205.82.117:9095/success
+       - SP_LOGO=http://www.elta.gr/Portals/0/elta.jpg
+       - ISS_URL=http://212.205.82.117/ISSPlus/ValidateToken
+       - SP_ID=sp1
+       - SP_SECRET=secret
+       - AUTH_DURATION=3800
+
+    pVoucherLogin:
+      image: endimion13/eidas-gr-isswebapp:1.3.2
+      ports:
+        - 9092:8090
+      environment:
+         - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+         - SP_FAIL_PAGE=http://dss.aegean.gr/
+         - SP_FAIL_PAGE=http://212.205.82.117:9095/error
+         - SP_SUCCESS_PAGE=http://212.205.82.117:9095/success
+         - SP_LOGO=http://www.elta.gr/Portals/0/elta.jpg
+         - ISS_URL=http://212.205.82.117/ISSPlus/ValidateToken
+         - SP_ID=sp2
+         - SP_SECRET=secret
+         - AUTH_DURATION=3800
+
+    zipcodesLogin:
+      image: endimion13/eidas-gr-isswebapp:1.3.2
+      ports:
+        - 9093:8090
+      environment:
+         - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+         - SP_FAIL_PAGE=http://212.205.82.117:9095/error
+         - SP_SUCCESS_PAGE=http://212.205.82.117:9095/success
+         - SP_LOGO=http://www.elta.gr/Portals/0/elta.jpg
+         - ISS_URL=http://212.205.82.117/ISSPlus/ValidateToken
+         - SP_ID=sp2
+         - SP_SECRET=secret
+         - AUTH_DURATION=3800
+
+
+
+  testSP:
+      container_name: testSP
+      image: endimion13/eidas-gr-testsp:1.0
+      expose:
+          - 9095
+      ports:
+          - 9095:8080
+      environment:
+          - LOGIN_WEBAPP_URL=http://dss.aegean.gr:9090/login
+          - SP_LOGO=http://www.elta.gr/Portals/0/elta.jpg
+          - SP_SECRET=secret
